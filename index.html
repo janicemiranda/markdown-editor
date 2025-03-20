@@ -26,8 +26,10 @@
 			<article class="sm:flex h-full">
 				<section class="sm:w-1/2 border h-full bg-[rgb(236,238,244)]">
 					<div class="markdown-view flex justify-between">
-						<h2>Markdown</h2>
-						<i class="fa-regular fa-copy fa-2x"></i>
+            <div class="markdown-heading flex items-center justify-between bg-[rgb(220,222,226)] w-full px-2 py-1">
+              <h2 class="flex-grow text-left text-[rgb(100,101,103)]">Markdown</h2>
+              <i class="fa-regular fa-copy fa-1.75x  text-[rgb(100,101,103)] bg-[rgb(196,198,202)] p-1 rounded-sm"></i>
+            </div>            
 					</div>
 					<textarea
 						id="markdown-input"
@@ -38,7 +40,9 @@
 					></textarea>
 				</section>
 					<div class="preview sm:w-1/2 border h-full bg-[rgb(236,238,244)]">
-						<h2>Preview</h2>
+            <div class="markdown-heading flex items-center justify-between bg-[rgb(220,222,226)] w-full px-2 py-1">
+              <h2 class="text-[rgb(100,101,103)]">Preview</h2>
+            </div>
             <section id="preview-section"></section>
 					</div>
 				</section>
