@@ -2,54 +2,62 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Markdown Editor</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
-		<link href="https://fonts.cdnfonts.com/css/monaco" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<link href="https://fonts.cdnfonts.com/css/monaco" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<title>Markdown Editor</title>
 	</head>
-	<body class="flex-col sm:max-h-screen h-screen border overflow-hidde">
-		<header class="h-[10vh] bg-[rgb(12,9,52)] grid grid-cols-3 items-center px-4">
+	<body class="h-screen grid grid-cols-2 grid-rows-[auto_1fr_auto] overflow-hidden bg-[rgb(12,9,52)] gap-1">
+		<header class="col-span-2 lg:col-span-1 py-4">
 			<h1 style="font-family: 'Silkscreen', sans-serif" class="text-white">Markdown Editor</h1>
-			<button
-				id="generate-html"
-				class="bg-[rgb(135,121,246)] text-white px-4 py-2 rounded absolute left-1/2 -translate-x-1/2"
-			>
-				Generate ✨
-			</button>
 		</header>
-
-		<main class="h-[93vh] overflow-auto">
-			<article class="sm:flex h-full">
-				<section class="sm:w-1/2 border h-full bg-[rgb(236,238,244)]">
-					<div class="markdown-view flex justify-between">
-            <div class="markdown-heading flex items-center justify-between bg-[rgb(220,222,226)] w-full px-2 py-1">
-              <h2 class="flex-grow text-left text-[rgb(100,101,103)]">Markdown</h2>
-              <i class="fa-regular fa-copy fa-1.75x  text-[rgb(100,101,103)] bg-[rgb(196,198,202)] p-1 rounded-sm"></i>
-            </div>            
+		<div
+			class="generate-button order-last col-span-2 lg:order-none lg:col-span-1 flex justify-center lg:justify-start py-4"
+		>
+			<button id="generate-html" class="bg-[rgb(135,121,246)] text-white px-4 py-2 rounded">Generate ✨</button>
+		</div>
+		<main class="col-span-2 h-full overflow-hidden">
+			<article class="h-full grid lg:grid-cols-2 gap-1">
+				<section class="h-full bg-[rgb(236,238,244)] flex flex-col">
+					<div class="markdown-view">
+						<div class="markdown-heading flex items-center justify-between bg-[rgb(220,222,226)] px-2 py-1">
+							<div class="formatting-buttons">
+								<button
+									id="bold-ital-button"
+									class="text-[rgb(100,101,103)] bg-[rgb(196,198,202)] rounded-sm px-2 py-1"
+								>
+									<strong>B </strong> / <em> I</em>
+								</button>
+								<!-- <button class="text-[rgb(100,101,103)] bg-[rgb(196,198,202)] px-3 py-1 rounded-sm"><em>I</em></button> -->
+							</div>
+							<i class="fa-regular fa-copy text-[rgb(100,101,103)] bg-[rgb(196,198,202)] px-3 py-2 rounded-sm"></i>
+						</div>
 					</div>
 					<textarea
 						id="markdown-input"
-						class="w-full h-full p-2 font-menlo resize-none outline-none"
+						class="w-full flex-1 p-2 font-menlo resize-none outline-none"
 						placeholder="Write markdown here..."
-            style="font-family: 'monaco', sans-serif"
-            oninput="myFunction()"
+						style="font-family: 'monaco', sans-serif"
 					></textarea>
 				</section>
-					<div class="preview sm:w-1/2 border h-full bg-[rgb(236,238,244)]">
-            <div class="markdown-heading flex items-center justify-between bg-[rgb(220,222,226)] w-full px-2 py-1">
-              <h2 class="text-[rgb(100,101,103)]">Preview</h2>
-            </div>
-            <section id="preview-section"></section>
+				<section class="h-full bg-[rgb(236,238,244)] flex flex-col">
+					<div class="preview bg-[rgb(236,238,244)]">
+						<div class="markdown-heading flex items-center justify-between bg-[rgb(220,222,226)] px-2 py-1">
+							<h2 class="text-[rgb(100,101,103)]">Preview</h2>
+						</div>
+						<section id="preview-section" class="flex-1 overflow-auto"></section>
 					</div>
 				</section>
 			</article>
 		</main>
 		<footer></footer>
 		<script src="./js/app.js"></script>
+		<script src="./js/format.js"></script>
+		<script src="./js/blocks.js"></script>
 	</body>
 </html>
-
