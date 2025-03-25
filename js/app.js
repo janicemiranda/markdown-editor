@@ -5,13 +5,19 @@
 const generateHtml = document.querySelector('#generate-html');
 const markdownInput = document.querySelector('#markdown-input');
 const previewSection = document.querySelector('#preview-section');
+const clearButton = document.querySelector('#clear-button');
 
 markdownInput.addEventListener('select', function (event) {
 	getSelectedText(event);
 });
 
-generateHtml.addEventListener('click', function () {
+markdownInput.addEventListener('input', function () {
 	getTextFromTextArea(convertToHtml);
+});
+
+clearButton.addEventListener('click', function () {
+	markdownInput.value = '';
+	previewSection.textContent = '';
 });
 
 // markdownInput.addEventListener('keydown', (e) => {
